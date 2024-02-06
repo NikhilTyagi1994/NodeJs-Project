@@ -1,15 +1,15 @@
 import express, { Request, Response } from "express";
 import airthmeticRoute from "./routes/arithmeticRoutes";
-import bodyParser from "body-parser";
+import fileRoute from "./routes/fileRoute";
 
 const app = express();
 
-const port:number = 3000;
+const port: number = 3000;
 
 app.use(express.json());
 
-app.use('/arithmetic', airthmeticRoute)
-
+app.use("/arithmetic", airthmeticRoute);
+app.use("/readFile", fileRoute);
 
 app.get("/test", (req: Request, res: Response) => {
   res.json({ data: "done" });
