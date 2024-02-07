@@ -1,6 +1,7 @@
 import express, { Request, Response } from "express";
 import airthmeticRoute from "./routes/arithmeticRoutes";
 import fileRoute from "./routes/fileRoute";
+import convertRoute from "./routes/conversionRoute";
 
 const app = express();
 
@@ -10,6 +11,7 @@ app.use(express.json());
 
 app.use("/arithmetic", airthmeticRoute);
 app.use("/readFile", fileRoute);
+app.use("/conversion", convertRoute);
 
 app.get("/test", (req: Request, res: Response) => {
   res.json({ data: "done" });
